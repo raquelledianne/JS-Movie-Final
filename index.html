@@ -43,11 +43,44 @@
                 <div class="row header__row">
             <h1 class="header__title">Find Your Movie</h1>
             <div class="search__wrapper">
-            <input type="text" placeholder="Browse by title or keyword" class="search__input">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Browse by title or keyword" id="search__input">
+            <button id="searchBtn">Search <i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
         </header>
+         <div class="modal">
+            <i class="fa-solid fa-xmark modal__exit click" onclick="toggleModal()"></i>
+            <h3 class="modal__title">
+                Get in Touch!
+            </h3>
+            <form onsubmit="contact(event)" id="contact__form">
+                <div class="form__item">
+                    <label class="form__item--label">Name</label>
+                    <input class="input" name="user_name" type="text" required>
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Email</label>
+                    <input class="input" name="user_email" type="email" required>
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Message</label>
+                    <textarea class="input" name="message" type="text" required></textarea>
+                </div>
+                <button id="contact__submit" class="form__submit">Send</button>
+            </form>
+            <div class="modal__overlay modal__overlay--loading">
+                <i class="fa-solid fa-spinner"></i>
+            </div>
+            <div class="modal__overlay modal__overlay--success">
+                Thanks for the message! We will get in touch shortly!
+            </div>
+        </section>
+
+        <section>
+        <main>
+            <div id="loading"></div>
+            <div id="movies"></div>
+        </main>
         </section>
 </body>
 </html>
