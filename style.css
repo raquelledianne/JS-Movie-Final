@@ -20,6 +20,10 @@ body {
     position: relative;
 }
 
+main {
+    min-height: 100vh;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -413,11 +417,12 @@ MODAL
 }
 
 .modal__overlay--success {
-    background-color: #b8eff3;
+    background-color: #57a8ad;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
     padding: 28px;
+    color: white;
 }
 
 .fa-spinner {
@@ -443,6 +448,7 @@ MODAL
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    z-index: 1200;
 }
 
 
@@ -473,5 +479,173 @@ footer {
   text-align: center;
 }
 
+/* for tablets and large smartphones */
+@media (max-width: 768px) {
 
+  /* NAV  */
 
+  nav {
+    height: auto;
+    padding: 16px 24px;
+    flex-direction: column;
+  }
+
+  .nav__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav__logo--img {
+    width: 200px;
+    height: auto;
+  }
+
+  .nav__links {
+    padding: 0;
+    gap: 24px;
+  }
+
+  .nav__link {
+    padding: 4px 16px;
+    font-size: 18px;
+  }
+
+  /* HEADER */
+
+  .header {
+    padding: 24px 16px;
+  }
+
+  .header__title {
+    font-size: 42px;
+    text-align: center;
+  }
+
+  .search__wrapper {
+    max-width: 100%;
+  }
+
+  #searchBtn {
+    position: static;
+    margin-left: 0;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .search__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* MOVIES */
+
+  #movies {
+    gap: 32px;
+    margin-top: 24px;
+  }
+
+  .movie {
+    width: 45%;   
+  }
+
+  /*  MODAL  */
+
+  .modal {
+    width: 100%;
+    height: auto;
+    padding: 24px;
+  }
+
+  /*  FOOTER  */
+
+  footer {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* NAV  */
+
+  nav {
+    padding: 12px 16px;
+  }
+
+  .nav__logo--img {
+    width: 160px;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav__link {
+    font-size: 16px;
+    padding: 4px 8px;
+  }
+
+  /* HEADER */
+
+  .header {
+    padding: 20px 12px;
+  }
+
+  .header__title {
+    font-size: 32px;
+  }
+
+  .search__wrapper {
+    width: 100%;
+  }
+
+  #search__input {
+    font-size: 14px;
+    padding: 14px;
+  }
+
+  #searchBtn {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  /* MOVIES  */
+
+  #movies {
+    gap: 24px;
+  }
+
+  .movie {
+    width: 100%;   /* 1 per row */
+    max-width: 300px;
+  }
+
+  .movie h3 {
+    font-size: 14px;
+  }
+
+  .movie p {
+    font-size: 13px;
+  }
+
+  /* MODAL */
+
+  .modal {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .modal__title {
+    font-size: 22px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    font-size: 13px;
+    padding: 14px;
+  }
+}
