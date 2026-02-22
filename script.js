@@ -1,22 +1,25 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    
   const searchInput = document.getElementById("search__input");
   const moviesDiv = document.getElementById("movies");
   const loadingDiv = document.getElementById("loading");
   const sortSelect = document.getElementById("sortSelect");
 
+  let movies = []; 
 
   searchInput.addEventListener("input", function () {
     const searchTerm = searchInput.value.trim();
 
-  if (searchTerm.length < 2) {
-  moviesDiv.innerHTML = "";
-  return;
-}
+    if (searchTerm.length < 2) {
+      moviesDiv.innerHTML = "";
+      return;
+    }
 
     fetchMovies(searchTerm);
+  });
+
+  sortSelect.addEventListener("change", function () {
+    displayMovies();
   });
 
   async function fetchMovies(searchTerm) {
@@ -28,14 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
         `https://www.omdbapi.com/?apikey=d8cfd282&s=${searchTerm}`
       );
 
-      
       const data = await response.json();
-
       loadingDiv.textContent = "";
 
-       
       if (data.Response === "True") {
-        displayMovies(data.Search);
+        movies = data.Search; 
+        displayMovies();
       } else {
         moviesDiv.innerHTML = "<p>No movies found.</p>";
       }
@@ -47,20 +48,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function displayMovies(movies) {
+  function displayMovies() {
 
-  const firstSixMovies = movies.slice(0, 6);
+    let sortedMovies = [...movies];
+    if (sortSelect.value === "az") {
+      sortedMovies.sort((a, b) => a.Title.localeCompare(b.Title));
+    }
 
-  moviesDiv.innerHTML = firstSixMovies
-    .map(movie => `
+    if (sortSelect.value === "za") {
+      sortedMovies.sort((a, b) => b.Title.localeCompare(a.Title));
+    }
+
+    const firstSix = sortedMovies.slice(0, 6);
+
+    moviesDiv.innerHTML = firstSix.map(movie => `
       <div class="movie">
         <h3>${movie.Title}</h3>
         <p>${movie.Year}</p>
-        <img src="${movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/200"}" alt="${movie.Title}">
+        <img src="${movie.Poster !== "N/A" 
+          ? movie.Poster 
+          : "https://via.placeholder.com/200"}" 
+          alt="${movie.Title}">
       </div>
-    `)
-    .join("");
-}
+    `).join("");
+  }
 
 });
 

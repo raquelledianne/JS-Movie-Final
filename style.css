@@ -649,3 +649,38 @@ footer {
     padding: 14px;
   }
 }
+
+/*
+
+FILTER 
+
+*/
+
+.filter__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0 36px 0;
+}
+
+.sort__select {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  color: white;
+  background-color: #3cb4c9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort__select:hover {
+  border-color: #333;
+}
+
+.sort__select:focus {
+  outline: none;
+  border-color: #231a77;
+  box-shadow: 0 0 0 2px rgba(92, 103, 242, 0.2);
+}
+
