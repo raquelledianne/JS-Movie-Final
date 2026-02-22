@@ -46,6 +46,7 @@ body {
   text-align: center;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 48px;
 }
 
 .movie img {
@@ -288,6 +289,12 @@ HEADER
 
 #searchBtn:hover {
   background-color: #305b77;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+#searchBtn:active {
+    transform: scale(0.95)
 }
 
 .fa-magnifying-glass {
@@ -394,13 +401,15 @@ MODAL
 
 
 .modal__overlay--loading {
-    background-color: #242424;
+    background-color: #027b91;
     font-size: 80px;
 }
 
 .modal__overlay--visible {
-    z-index: 1;
     display: flex;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1100;
 }
 
 .modal__overlay--success {
@@ -413,6 +422,7 @@ MODAL
 
 .fa-spinner {
     animation: spinner 750ms infinite linear;
+    color: white;
 }
 
 @keyframes spinner {
@@ -449,4 +459,19 @@ MODAL
 .click:active {
     transform: scale(0.8);
 }
+
+/* 
+
+FOOTER
+
+*/
+
+footer {
+  background-color: #184d6b;
+  color: white;
+  padding: 24px;
+  text-align: center;
+}
+
+
 
