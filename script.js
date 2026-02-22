@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("search__input");
   const moviesDiv = document.getElementById("movies");
   const loadingDiv = document.getElementById("loading");
+  const sortSelect = document.getElementById("sortSelect");
 
 
   searchInput.addEventListener("input", function () {
